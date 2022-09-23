@@ -10,6 +10,7 @@ mongoClient.connect('mongodb://localhost/nodejsapistarter')
 
 const app = express();
 
+const deckRoute = require('./routes/deck');
 const userRoute = require('./routes/user');
 
 // Middlewares
@@ -18,6 +19,7 @@ app.use(bodyParser.json());
 
 // Routes
 app.use('/users',userRoute);
+app.use('/decks',deckRoute);
 
 // Routes
 app.get('/',(req, res, next) => {
